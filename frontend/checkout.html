@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Booking - BarberConnect</title>
+    <link rel="stylesheet" href="checkout.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header id="navbar">
+        <nav>
+            <a href="index.html" class="logo"><i class="fas fa-cut"></i> BarberConnect</a>
+            <ul class="nav-user-profile">
+                <li><a href="#" class="nav-link"><i class="fas fa-calendar-alt"></i> My Bookings</a></li>
+                <li><a href="#" class="nav-link"><i class="fas fa-user-circle"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="checkout-container">
+        <h1>Confirm Your Appointment</h1>
+        <div class="checkout-grid">
+            <div class="scheduler-column">
+                <div class="scheduler-step">
+                    <h3>1. Select Date</h3>
+                    <div class="date-picker">
+                        <button class="date-slot" data-date="2025-09-20">
+                            <span class="day-name">Sat</span>
+                            <span class="day-number">20</span>
+                        </button>
+                        <button class="date-slot" data-date="2025-09-21">
+                            <span class="day-name">Sun</span>
+                            <span class="day-number">21</span>
+                        </button>
+                        <button class="date-slot" data-date="2025-09-22">
+                            <span class="day-name">Mon</span>
+                            <span class="day-number">22</span>
+                        </button>
+                         <button class="date-slot" data-date="2025-09-23">
+                            <span class="day-name">Tue</span>
+                            <span class="day-number">23</span>
+                        </button>
+                         <button class="date-slot" data-date="2025-09-24">
+                            <span class="day-name">Wed</span>
+                            <span class="day-number">24</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="scheduler-step">
+                    <h3>2. Select Time</h3>
+                    <div class="time-slots-grid">
+                        <button class="time-slot">10:00 AM</button>
+                        <button class="time-slot">10:30 AM</button>
+                        <button class="time-slot" disabled>11:00 AM</button>
+                        <button class="time-slot">11:30 AM</button>
+                        <button class="time-slot">01:00 PM</button>
+                        <button class="time-slot">01:30 PM</button>
+                        <button class="time-slot">02:00 PM</button>
+                        <button class="time-slot" disabled>03:00 PM</button>
+                        <button class="time-slot">03:30 PM</button>
+                    </div>
+                </div>
+
+                <div class="scheduler-step">
+                    <h3>3. Special Requests (Optional)</h3>
+                    <textarea placeholder="e.g., preference for a specific stylist, allergies, etc."></textarea>
+                </div>
+            </div>
+
+            <div class="summary-column">
+                <div class="booking-summary-card">
+                    <h3>Booking Summary</h3>
+                    <div class="summary-shop-details">
+                        <h4>Aura Styles & Cuts</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Viman Nagar, Pune</p>
+                    </div>
+                    <div class="summary-services-list">
+                        <div class="summary-service-item">
+                            <span>Women's Haircut & Style</span>
+                            <span>₹800</span>
+                        </div>
+                         <div class="summary-service-item">
+                            <span>Global Hair Color</span>
+                            <span>₹3500</span>
+                        </div>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span>₹4300</span>
+                    </div>
+                    <button id="confirm-booking-btn" class="btn btn-primary" disabled>Confirm Booking</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="checkout.js"></script>
+</body>
+</html>

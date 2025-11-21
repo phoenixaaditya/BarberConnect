@@ -1,0 +1,493 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #FF6B6B;
+    --dark-bg: #1A1A1A;
+    --sidebar-bg: #212121;
+    --card-bg: #282828;
+    --dark-text: #E0E0E0;
+    --grey-border: #444;
+    --status-confirmed: #28a745;
+    --status-pending: #ffc107;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); background: var(--dark-bg); color: var(--dark-text); font-size: 16px; }
+
+/* --- Main Layout --- */
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+    background: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+.sidebar-header .logo { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700; color: var(--primary-color); text-decoration: none; }
+.sidebar-nav { flex-grow: 1; margin-top: 3rem; }
+.sidebar-nav ul { list-style: none; }
+.sidebar-nav li a {
+    display: flex;
+    align-items: center;
+    color: #bbb;
+    text-decoration: none;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.sidebar-nav li a:hover { background: var(--card-bg); color: #fff; }
+.sidebar-nav li a.active { background: var(--primary-color); color: #fff; font-weight: 600; }
+.sidebar-nav li a i { margin-right: 1rem; width: 20px; text-align: center; }
+.sidebar-footer { border-top: 1px solid var(--grey-border); padding-top: 1.5rem; }
+.sidebar-footer a { display: block; color: #bbb; text-decoration: none; padding: 0.5rem 1rem; }
+
+/* --- Main Content --- */
+.main-content { padding: 2rem 3rem; }
+.main-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+.main-header h1 { font-family: var(--font-heading); font-size: 2rem; }
+.header-profile { display: flex; align-items: center; gap: 1rem; }
+.header-profile i { font-size: 2rem; }
+
+/* Stat Cards */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+.stat-card { background: var(--card-bg); padding: 1.5rem; border-radius: 8px; display: flex; align-items: center; gap: 1.5rem; }
+.stat-icon { font-size: 1.8rem; padding: 1rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.stat-icon.appointments { background: #007bff30; color: #007bff; }
+.stat-icon.pending { background: #ffc10730; color: #ffc107; }
+.stat-icon.revenue { background: #28a74530; color: #28a745; }
+.stat-icon.reviews { background: #dc354530; color: #dc3545; }
+.stat-info p { color: #bbb; margin-bottom: 0.3rem; }
+.stat-info span { font-size: 2rem; font-weight: 700; }
+
+/* Content Grid (Appointments & Activity) */
+.content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; }
+.card { background: var(--card-bg); padding: 1.5rem; border-radius: 8px; }
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.card-header h3 { font-family: var(--font-heading); font-size: 1.2rem; }
+.card-header a { color: var(--primary-color); text-decoration: none; font-weight: 500; }
+
+/* Appointment List */
+.appointment-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--grey-border); }
+.appointment-item:last-child { border-bottom: none; }
+.customer-info { display: flex; align-items: center; gap: 1.5rem; }
+.customer-info .time { font-weight: 600; font-size: 1.1rem; }
+.customer-info h4 { font-size: 1rem; }
+.customer-info p { font-size: 0.9rem; color: #bbb; }
+.status { font-weight: 600; padding: 0.3rem 0.7rem; border-radius: 15px; font-size: 0.8rem; }
+.status.confirmed { background: #28a74530; color: var(--status-confirmed); }
+.status.pending { background: #ffc10730; color: var(--status-pending); }
+
+/* Activity Feed */
+.activity-item { display: flex; align-items: center; gap: 1rem; padding: 0.8rem 0; }
+.activity-item i { color: var(--primary-color); }
+
+/* --- Single Page View Control --- */
+.main-view {
+    display: none; /* Hide all views by default */
+}
+.main-view.active {
+    display: block; /* Show only the active view */
+}
+
+/* --- Styles for New Views (Services, Customers, Analytics) --- */
+.btn {
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+.data-table th, .data-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--grey-border);
+}
+.data-table thead {
+    background: #333;
+}
+.data-table th {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #bbb;
+}
+
+.btn-icon {
+    background: none;
+    border: 1px solid var(--grey-border);
+    color: #bbb;
+    padding: 0.5rem;
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    transition: all 0.3s ease;
+}
+.btn-icon:hover {
+    color: #fff;
+}
+.btn-icon.edit:hover { border-color: #007bff; color: #007bff; }
+.btn-icon.delete:hover { border-color: var(--primary-color); color: var(--primary-color); }
+
+.btn-sm {
+    background: var(--dark-bg);
+    border: 1px solid var(--grey-border);
+    color: #ccc;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+.btn-sm:hover {
+    background: #444;
+}
+
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+}
+.chart-card h3 { margin-bottom: 1rem; }
+.chart-placeholder {
+    height: 250px;
+    background: #333;
+    border-radius: 5px;
+    display: grid;
+    place-content: center;
+    color: #888;
+}
+
+/* --- Modal Styles --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+/* Hidden State for Modal */
+.modal-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+.modal-overlay.hidden .modal-content {
+    transform: scale(0.95);
+}
+
+/* Modal Form Styles */
+#service-form h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #bbb;
+}
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    background: var(--dark-bg);
+    border: 1px solid var(--grey-border);
+    border-radius: 5px;
+    color: var(--dark-text);
+    font-size: 1rem;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn-secondary {
+    background: #444;
+    color: #fff;
+}
+
+/* --- Customer Modal Styles --- */
+.modal-content.large {
+    max-width: 700px; /* A wider modal for more details */
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.customer-modal-header {
+    text-align: center;
+    border-bottom: 1px solid var(--grey-border);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.customer-modal-header h3 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+}
+
+.customer-quick-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.quick-stat p {
+    color: #bbb;
+    font-size: 0.9rem;
+}
+.quick-stat span {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.customer-section-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.appointment-history-list {
+    list-style: none;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid var(--grey-border);
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem;
+}
+.history-item:not(:last-child) {
+    border-bottom: 1px solid var(--grey-border);
+}
+
+.loyalty-management {
+    margin-top: 2rem;
+    background: var(--dark-bg);
+    padding: 1rem;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.loyalty-points-display span {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #ffc107; /* Gold color for points */
+}
+
+.add-points-form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.add-points-form input {
+    width: 80px;
+    padding: 0.5rem;
+    background: #333;
+    border: 1px solid var(--grey-border);
+    color: var(--dark-text);
+    border-radius: 5px;
+}
+
+/* --- Analytics Page Styles --- */
+.date-picker-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--card-bg);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+#analytics-date {
+    background: var(--dark-bg);
+    border: 1px solid var(--grey-border);
+    color: var(--dark-text);
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+/* Remove old placeholder styles if they exist */
+.chart-placeholder { display: none; }
+
+.chart-container {
+    height: 250px;
+    margin-top: 1.5rem;
+}
+
+/* Line Chart */
+.line-chart svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Horizontal Bar Chart (Top Services) */
+.horizontal-bar-chart .bar-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.horizontal-bar-chart .label {
+    width: 120px;
+    font-size: 0.9rem;
+    color: #bbb;
+}
+.horizontal-bar-chart .bar {
+    height: 25px;
+    width: var(--value);
+    background: linear-gradient(90deg, var(--primary-color), #ff8a8a);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+    animation: growHorizontal 1s ease-out;
+}
+
+/* Vertical Bar Chart (New vs Returning) */
+.vertical-bar-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+}
+.vertical-bar-chart .bar-group {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-end;
+    height: 100%;
+    width: 60%;
+    border-bottom: 2px solid var(--grey-border);
+}
+.vertical-bar-chart .bar {
+    width: 100%;
+    height: var(--value);
+    border-radius: 5px 5px 0 0;
+    position: relative;
+    animation: growVertical 1s ease-out;
+}
+.vertical-bar-chart .bar:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #000;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+.bar.new-customer { background-color: #007bff; }
+.bar.returning-customer { background-color: #28a745; }
+
+.chart-legend {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1.5rem;
+}
+.legend-item::before {
+    content: '';
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 0.5rem;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+.legend-item.new-customer::before { background-color: #007bff; }
+.legend-item.returning-customer::before { background-color: #28a745; }
+
+/* Peak Hours Chart */
+.peak-hours-chart {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    border-bottom: 2px solid var(--grey-border);
+}
+.peak-hours-chart .bar {
+    width: 12%;
+    background: var(--primary-color);
+    border-radius: 5px 5px 0 0;
+    height: var(--value);
+    position: relative;
+    animation: growVertical 1s ease-out;
+}
+.peak-hours-chart .bar::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #bbb;
+    font-size: 0.8rem;
+}
+
+/* Animations */
+@keyframes growVertical {
+    from { height: 0; }
+    to { height: var(--value); }
+}
+@keyframes growHorizontal {
+    from { width: 0; }
+    to { width: var(--value); }
+}

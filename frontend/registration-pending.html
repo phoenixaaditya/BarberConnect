@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Submitted - BarberConnect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Embedded styles for this simple, self-contained page */
+        :root {
+            --primary-color: #FF6B6B;
+            --dark-bg: #1A1A1A;
+            --dark-text: #E0E0E0;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Roboto', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+        }
+
+        .icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: #bbb;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            width: auto;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: #FF4A4A;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <i class="fas fa-paper-plane icon"></i>
+        <h2>Application Submitted!</h2>
+        <p>Thank you for registering. Your profile is now under review by our team. You will receive an email notification once your shop is approved.</p>
+        <a href="index.html" class="btn btn-primary">Back to Home</a>
+    </div>
+</body>
+</html>

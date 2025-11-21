@@ -1,0 +1,99 @@
+:root {
+    --primary-color: #007BFF;
+    --dark-bg: #1A1A1A;
+    --sidebar-bg: #212121;
+    --card-bg: #282828;
+    --dark-text: #E0E0E0;
+    --grey-border: #444;
+    --status-pending: #ffc107;
+    --approve-color: #28a745;
+    --reject-color: #dc3545;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: var(--font-body);
+    background: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+}
+
+/* Sidebar (similar to barber dashboard, but with admin theme) */
+.sidebar {
+    background: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+.sidebar-header .logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.sidebar-nav { flex-grow: 1; margin-top: 3rem; }
+.sidebar-nav ul { list-style: none; }
+.sidebar-nav li a {
+    display: flex;
+    align-items: center;
+    color: #bbb;
+    text-decoration: none;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.sidebar-nav li a:hover { background: var(--card-bg); color: #fff; }
+.sidebar-nav li a.active { background: var(--primary-color); color: #fff; font-weight: 600; }
+.sidebar-nav li a i { margin-right: 1rem; }
+.sidebar-footer { border-top: 1px solid var(--grey-border); padding-top: 1.5rem; }
+.sidebar-footer a { display: block; color: #bbb; text-decoration: none; padding: 0.5rem 1rem; }
+
+/* Main Content */
+.main-content { padding: 2rem 3rem; }
+.main-header { margin-bottom: 2rem; }
+.main-header h1 { font-family: var(--font-heading); font-size: 2rem; }
+.card { background: var(--card-bg); padding: 1.5rem; border-radius: 8px; }
+
+/* Data Table (reused from barber dashboard) */
+.data-table { width: 100%; border-collapse: collapse; text-align: left; }
+.data-table th, .data-table td { padding: 1rem; border-bottom: 1px solid var(--grey-border); }
+.data-table thead { background: #333; }
+.data-table th { font-family: var(--font-heading); font-size: 0.9rem; text-transform: uppercase; color: #bbb; }
+
+/* Status & Action Buttons */
+.status {
+    font-weight: 600;
+    padding: 0.3rem 0.7rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    background: #ffc10730;
+    color: var(--status-pending);
+}
+
+.btn-sm {
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-right: 0.5rem;
+    transition: opacity 0.3s;
+}
+.btn-sm:hover { opacity: 0.8; }
+.btn-approve { background-color: var(--approve-color); }
+.btn-reject { background-color: var(--reject-color); }

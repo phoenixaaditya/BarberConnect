@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Styles & Cuts - BarberConnect</title>
+    <link rel="stylesheet" href="shop-profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header id="navbar">
+        <nav>
+            <a href="index.html" class="logo"><i class="fas fa-cut"></i> BarberConnect</a>
+            <div class="search-bar-nav">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search for a barber or service...">
+            </div>
+            <ul class="nav-user-profile">
+                <li><a href="#" class="nav-link"><i class="fas fa-calendar-alt"></i> My Bookings</a></li>
+                <li><a href="#" class="nav-link"><i class="fas fa-user-circle"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="profile-container">
+        <section class="gallery-section">
+            <div class="main-image">
+                <img src="images/unnamed.png" alt="Main Salon Image">
+            </div>
+            <div class="thumbnail-images">
+                <!-- <img src="images/unnamed (4).png" alt="Thumbnail 1">s -->
+                <!-- <img src="images/unnamed (2).png" alt="Thumbnail 2"> -->
+                <!-- <img src="images/unnamed (3).png" alt="Thumbnail 3"> -->
+            </div>
+        </section>
+
+        <section class="shop-info-header">
+            <div>
+                <span class="card-type salon">Unisex Salon</span>
+                <h1>Viman Nagar Styles</h1>
+                <p class="shop-location"><i class="fas fa-map-marker-alt"></i> Shop 42, Phoenix Marketcity, Viman Nagar, Pune</p>
+            </div>
+            <div class="shop-rating-summary">
+                <span class="rating-box"><i class="fas fa-star"></i> 4.8</span>
+                <a href="#reviews" class="review-count">212 Reviews</a>
+            </div>
+        </section>
+
+        <div class="main-content-grid">
+            <div class="services-column">
+                <h2>Our Services</h2>
+                <div class="collapsible-group">
+                    <button type="button" class="collapsible-header"><span>Cuts & Styling</span><i class="fas fa-chevron-down toggle-icon"></i></button>
+                    <div class="collapsible-content">
+                        <div class="service-item" data-name="Women's Haircut" data-price="800" data-duration="60">
+                            <div class="service-details">
+                                <h4>Women's Haircut & Style</h4>
+                                <p>₹800 • 60 min</p>
+                            </div>
+                            <button class="btn btn-add">Book</button>
+                        </div>
+                        <div class="service-item" data-name="Men's Haircut" data-price="450" data-duration="30">
+                            <div class="service-details">
+                                <h4>Men's Precision Cut</h4>
+                                <p>₹450 • 30 min</p>
+                            </div>
+                            <button class="btn btn-add">Book</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapsible-group">
+                    <button type="button" class="collapsible-header"><span>Color & Treatments</span><i class="fas fa-chevron-down toggle-icon"></i></button>
+                    <div class="collapsible-content">
+                         <div class="service-item" data-name="Global Hair Color" data-price="3500" data-duration="120">
+                            <div class="service-details">
+                                <h4>Global Hair Color</h4>
+                                <p>₹3500 • 120 min</p>
+                            </div>
+                            <button class="btn btn-add">Book</button>
+                        </div>
+                        <div class="service-item" data-name="Keratin Treatment" data-price="5000" data-duration="180">
+                            <div class="service-details">
+                                <h4>Keratin Smoothing Treatment</h4>
+                                <p>₹5000 • 180 min</p>
+                            </div>
+                            <button class="btn btn-add">Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="details-column">
+                <div class="booking-widget">
+    <h3>Booking Summary</h3>
+    <div id="selected-services-list">
+        <p class="empty-cart">Select services to begin booking.</p>
+    </div>
+    <div class="summary-total">
+        <span>Total</span>
+        <span id="total-price">₹0</span>
+    </div>
+    <button id="checkout-btn" class="btn btn-primary" disabled>Choose Date & Time</button>
+</div>
+                <div class="info-widget">
+                    <h3><i class="fas fa-clock"></i> Opening Hours</h3>
+                    <ul>
+                        <li><span>Monday - Friday</span> <span>10:00 AM - 9:00 PM</span></li>
+                        <li><span>Saturday</span> <span>9:00 AM - 10:00 PM</span></li>
+                        <li><span>Sunday</span> <span>Closed</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <section id="reviews" class="reviews-section">
+            <h2><i class="fas fa-star"></i> Customer Reviews</h2>
+            <article class="review-card">
+                <h4>Priya S.</h4>
+                <div class="review-meta">
+                    <span class="review-rating">★★★★★</span> <span class="review-date">September 15, 2025</span>
+                </div>
+                <p>"Absolutely amazing service! Rohan gave me the best haircut I've had in years. The salon is clean and has a great vibe. Highly recommended!"</p>
+            </article>
+            <article class="review-card">
+                <h4>Amit K.</h4>
+                <div class="review-meta">
+                    <span class="review-rating">★★★★☆</span> <span class="review-date">September 12, 2025</span>
+                </div>
+                <p>"Good haircut and professional staff. A bit pricey, but the quality is worth it. Will visit again."</p>
+            </article>
+        </section>
+    </main>
+</body>
+<script src="shop-profile.js"></script>
+</html>

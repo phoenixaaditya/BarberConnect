@@ -1,0 +1,202 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #FF6B6B;
+    --dark-bg: #1A1A1A;
+    --dark-card-bg: #282828;
+    --dark-text: #E0E0E0;
+    --grey-border: #444;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background: url('https://images.unsplash.com/photo-1621605815971-fbc3330058da?q=80&w=1974') no-repeat center center/cover;
+    background-color: var(--dark-bg);
+    background-blend-mode: overlay;
+    color: var(--dark-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* --- Auth Container & Box --- */
+.auth-container {
+    width: 100%;
+    padding: 20px;
+}
+
+.auth-box {
+    max-width: 450px;
+    margin: 0 auto;
+    background: rgba(40, 40, 40, 0.95); /* Semi-transparent dark card */
+    padding: 2.5rem 3rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid var(--grey-border);
+    backdrop-filter: blur(10px);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.auth-header .logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.auth-header .logo i {
+    margin-right: 0.5rem;
+}
+
+.auth-header h1 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--dark-text);
+}
+
+/* --- Form Elements --- */
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    background: #1e1e1e;
+    border: 1px solid var(--grey-border);
+    border-radius: 5px;
+    color: var(--dark-text);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+}
+
+.terms-group, .options-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.terms-group label {
+    color: #bbb;
+}
+
+.terms-group input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: #fff;
+}
+.btn-primary:hover {
+    background: #FF4A4A;
+}
+
+/* --- Separator & Social Login --- */
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 2rem 0;
+    color: #888;
+}
+.separator::before, .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--grey-border);
+}
+.separator span {
+    padding: 0 1rem;
+}
+
+.social-login .btn-social {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: 1px solid var(--grey-border);
+    background: transparent;
+    color: var(--dark-text);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.social-login .btn-social i {
+    margin-right: 0.8rem;
+    font-size: 1.2rem;
+}
+.social-login .btn-social.google:hover {
+    background-color: #4285F4;
+    border-color: #4285F4;
+}
+.social-login .btn-social {
+    background-color: #1877F2;
+    border-color: #1877F2;
+}
+
+/* --- Toggle --- */
+.toggle-auth {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #bbb;
+}
+
+/* --- Utility Class --- */
+.hidden {
+    display: none;
+}

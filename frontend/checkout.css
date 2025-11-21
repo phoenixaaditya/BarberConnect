@@ -1,0 +1,109 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #FF6B6B;
+    --dark-bg: #1A1A1A;
+    --dark-card-bg: #282828;
+    --dark-text: #E0E0E0;
+    --grey-border: #444;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); background: var(--dark-bg); color: var(--dark-text); }
+
+/* --- Reusable Header --- */
+#navbar { background: var(--dark-card-bg); padding: 1rem 5%; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+nav .logo { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 700; color: var(--primary-color); text-decoration: none; }
+.nav-user-profile { list-style: none; display: flex; align-items: center; }
+.nav-user-profile .nav-link { color: var(--dark-text); margin-left: 1.5rem; font-size: 1.1rem; text-decoration: none; }
+
+/* --- Main Checkout Container --- */
+.checkout-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+.checkout-container h1 { font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 2rem; }
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+/* --- Scheduler Column --- */
+.scheduler-step { margin-bottom: 2.5rem; }
+.scheduler-step h3 { font-size: 1.5rem; margin-bottom: 1rem; border-left: 3px solid var(--primary-color); padding-left: 1rem; }
+
+/* Date Picker */
+.date-picker { display: flex; gap: 1rem; }
+.date-slot {
+    background: var(--dark-card-bg);
+    border: 1px solid var(--grey-border);
+    color: var(--dark-text);
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+    width: 80px;
+}
+.date-slot:hover { border-color: var(--primary-color); }
+.date-slot.active { background: var(--primary-color); color: #fff; border-color: var(--primary-color); }
+.date-slot .day-name { display: block; font-size: 0.9rem; margin-bottom: 0.5rem; }
+.date-slot .day-number { display: block; font-size: 1.5rem; font-weight: 600; }
+
+/* Time Slots */
+.time-slots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+}
+.time-slot {
+    background: var(--dark-card-bg);
+    border: 1px solid var(--grey-border);
+    color: var(--dark-text);
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.time-slot:hover:not(:disabled) { border-color: var(--primary-color); }
+.time-slot.active { background: var(--primary-color); color: #fff; border-color: var(--primary-color); }
+.time-slot:disabled { background: #222; color: #666; cursor: not-allowed; text-decoration: line-through; }
+
+/* Text Area */
+textarea {
+    width: 100%;
+    height: 100px;
+    background: var(--dark-card-bg);
+    border: 1px solid var(--grey-border);
+    border-radius: 8px;
+    padding: 1rem;
+    color: var(--dark-text);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    resize: vertical;
+}
+
+/* --- Summary Column --- */
+.summary-column { position: sticky; top: 100px; }
+.booking-summary-card {
+    background: var(--dark-card-bg);
+    border: 1px solid var(--grey-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+.booking-summary-card h3 { font-family: var(--font-heading); margin-bottom: 1.5rem; }
+.summary-shop-details { padding-bottom: 1rem; margin-bottom: 1rem; border-bottom: 1px solid var(--grey-border); }
+.summary-shop-details h4 { font-size: 1.2rem; }
+.summary-shop-details p { color: #bbb; }
+.summary-service-item { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.9rem; }
+.summary-total { display: flex; justify-content: space-between; font-weight: 600; font-size: 1.2rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--grey-border); }
+
+.btn { width: 100%; padding: 1rem; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background-color 0.3s ease; }
+.btn-primary { background: var(--primary-color); color: #fff; }
+.btn-primary:disabled { background: #555; color: #888; cursor: not-allowed; }

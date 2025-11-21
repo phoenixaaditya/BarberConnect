@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - BarberConnect</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header id="navbar">
+        <nav>
+            <a href="index.html" class="logo"><i class="fas fa-cut"></i> BarberConnect</a>
+            <div class="search-bar-nav">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search for a barber or service...">
+            </div>
+            <ul class="nav-user-profile">
+                <li><a href="#" class="nav-link"><i class="fas fa-calendar-alt"></i> My Bookings</a></li>
+                <li><a href="#" class="nav-link"><i class="fas fa-user-circle"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+<main class="dashboard-container">
+    <section class="filter-section">
+        <h2>Filters</h2>
+        
+        <div class="collapsible-group">
+            <button type="button" class="collapsible-header">
+                <span><i class="fas fa-store"></i> Shop Type</span>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </button>
+            <div class="collapsible-content">
+                <div class="shop-type-toggle">
+                    <input type="radio" id="type-all" name="shop-type" value="all" checked>
+                    <label for="type-all">All</label>
+                    <input type="radio" id="type-barber" name="shop-type" value="barber">
+                    <label for="type-barber">Barbers</label>
+                    <input type="radio" id="type-salon" name="shop-type" value="salon">
+                    <label for="type-salon">Salons</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="collapsible-group">
+            <button type="button" class="collapsible-header">
+                <span><i class="fas fa-concierge-bell"></i> Services</span>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </button>
+            <div class="collapsible-content">
+                <label class="service-category">Cuts & Style</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="s1" name="service1"> <label for="s1">Men's Haircut</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="s5" name="service5"> <label for="s5">Women's Haircut</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="s6" name="service6"> <label for="s6">Blow Dry & Styling</label>
+                </div>
+                <label class="service-category">Beard & Shave</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="s2" name="service2"> <label for="s2">Beard Trim</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="s3" name="service3"> <label for="s3">Hot Towel Shave</label>
+                </div>
+                <label class="service-category">Color & Treatments</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="s4" name="service4"> <label for="s4">Hair Color</label>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="s7" name="service7"> <label for="s7">Keratin Treatment</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="collapsible-group">
+            <button type="button" class="collapsible-header">
+                <span><i class="fas fa-sort-amount-down"></i> Sort By</span>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+            </button>
+            <div class="collapsible-content">
+                 <select id="sort-by">
+                    <option value="rating">Top Rated</option>
+                    <option value="distance">Distance</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary filter-apply-btn">Apply Filters</button>
+    </section>
+
+    <section class="results-section">
+        <div class="results-header">
+            <h2>Showing 3 Shops in Pune</h2>
+            <p>Your next look is just a click away.</p>
+        </div>
+        <div class="results-grid">
+            <div class="barber-card">
+                <div class="card-image">
+                    <img src="images/unnamed (3).png" alt="Barber Shop Interior">
+                    <span class="card-rating"><i class="fas fa-star"></i> 4.9</span>
+                </div>
+                <div class="card-content">
+                    <span class="card-type barber">Barber Shop</span>
+                    <h3>Koregaon Park Kuts</h3>
+                    <p class="card-location"><i class="fas fa-map-marker-alt"></i> Koregaon Park, Pune</p>
+                    <div class="card-services">
+                        <span>Men's Haircut</span> <span>Beard Trim</span> <span>Shave</span>
+                    </div>
+                    <p class="card-status open">Open Now</p>
+                    <a href="shop-profile.html" class="btn btn-secondary">View & Book</a>
+                </div>
+            </div>
+
+            <div class="barber-card">
+                <div class="card-image">
+                    <img src="images/unnamed (2).png" alt="Stylish Salon">
+                    <span class="card-rating"><i class="fas fa-star"></i> 4.8</span>
+                </div>
+                <div class="card-content">
+                    <span class="card-type salon">Unisex Salon</span>
+                    <h3>Viman Nagar Styles</h3>
+                    <p class="card-location"><i class="fas fa-map-marker-alt"></i> Viman Nagar, Pune</p>
+                    <div class="card-services">
+                        <span>Women's Cut</span> <span>Styling</span> <span>Hair Color</span>
+                    </div>
+                    <p class="card-status open">Open Now</p>
+                    <a href="shop-profile.html" class="btn btn-secondary">View & Book</a>
+                </div>
+            </div>
+
+            <div class="barber-card">
+                <div class="card-image">
+                    <img src="images/unnamed (1).png" alt="Modern Barber Shop">
+                     <span class="card-rating"><i class="fas fa-star"></i> 4.7</span>
+                </div>
+                <div class="card-content">
+                    <span class="card-type barber">Barber Shop</span>
+                    <h3>FC Road Fade Masters</h3>
+                    <p class="card-location"><i class="fas fa-map-marker-alt"></i> FC Road, Pune</p>
+                    <div class="card-services">
+                        <span>Haircut</span> <span>Kids Cut</span> <span>Head Massage</span>
+                    </div>
+                    <p class="card-status closed">Closed</p>
+                    <a href="shop-profile.html" class="btn btn-secondary">View & Book</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+<script src="dashboard.js"></script>
+</html>

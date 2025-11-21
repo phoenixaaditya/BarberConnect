@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barber Business Portal - BarberConnect</title>
+    <link rel="stylesheet" href="barber-auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <a href="index.html" class="logo"><i class="fas fa-cut"></i> BarberConnect</a>
+                <h1 id="auth-title">Create a Business Account</h1>
+            </div>
+
+            <!-- This div is no longer used for confirmation, but can be kept for future use if needed -->
+            <div id="pending-view" class="hidden">
+                <div class="pending-message">
+                    <i class="fas fa-paper-plane"></i>
+                    <h2>Application Submitted!</h2>
+                    <p>Thank you for registering. Your profile is now under review by our team. You will receive an email notification once your shop is approved.</p>
+                    <a href="index.html" class="btn btn-primary">Back to Home</a>
+                </div>
+            </div>
+
+            <form id="auth-form">
+                <div id="signup-view">
+                    <div class="input-group"><i class="fas fa-user"></i><input type="text" placeholder="Your Full Name" required></div>
+                    <div class="input-group"><i class="fas fa-envelope"></i><input type="email" placeholder="Email Address" required></div>
+                    <div class="input-group"><i class="fas fa-phone"></i><input type="tel" placeholder="Phone Number" required></div>
+                    <div class="input-group"><i class="fas fa-store"></i><input type="text" placeholder="Shop Name" required></div>
+                    <div class="input-group"><i class="fas fa-map-marker-alt"></i><textarea placeholder="Barber Shop Address" required rows="3"></textarea></div>
+                    <div class="input-group radio-group">
+                        <label class="group-label"><i class="fas fa-store"></i> Shop Category</label>
+                        <div class="radio-options">
+                            <div class="radio-option"><input type="radio" id="type-barbershop" name="shop-type" value="barbershop" required><label for="type-barbershop">Barbershop (Men's)</label></div>
+                            <div class="radio-option"><input type="radio" id="type-salon" name="shop-type" value="salon"><label for="type-salon">Salon (Women's)</label></div>
+                            <div class="radio-option"><input type="radio" id="type-unisex" name="shop-type" value="unisex"><label for="type-unisex">Unisex Salon</label></div>
+                        </div>
+                    </div>
+                    <div class="input-group"><i class="fas fa-id-card"></i><input type="text" placeholder="Trade License Number" required></div>
+                    <div class="file-upload-group">
+                        <label for="trade-license-image" class="file-upload-label"><i class="fas fa-upload"></i> Upload Trade License Image</label>
+                        <input type="file" id="trade-license-image" class="file-upload-input" required>
+                        <span id="file-name-display" class="file-name">No file chosen</span>
+                    </div>
+                    <div class="input-group"><i class="fas fa-file-invoice"></i><input type="text" placeholder="GST Number (Optional)"></div>
+                    <div class="input-group"><i class="fas fa-lock"></i><input type="password" placeholder="Create Password" required></div>
+                    <button type="submit" class="btn btn-primary">Submit for Verification</button>
+                </div>
+
+                <div id="login-view" class="hidden">
+                    <div class="input-group"><i class="fas fa-envelope"></i><input type="email" placeholder="Email Address" required disabled></div>
+                    <div class="input-group"><i class="fas fa-lock"></i><input type="password" placeholder="Password" required disabled></div>
+                    <button type="submit" class="btn btn-primary">Log In</button>
+                </div>
+            </form>
+            
+            <div class="toggle-auth">
+                <p id="toggle-text">Already have an account? <a href="#" id="show-login-link">Log In</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="barber-auth.js"></script>
+</body>
+</html>
+

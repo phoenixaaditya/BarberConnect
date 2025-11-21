@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - BarberConnect for Business</title>
+    <link rel="stylesheet" href="barber-dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="#" class="logo"><i class="fas fa-cut"></i> BarberConnect</a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#" class="nav-link active" data-target="dashboard-view"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="#" class="nav-link" data-target="appointments-view"><i class="fas fa-calendar-check"></i> Appointments</a></li>
+                <li><a href="#" class="nav-link" data-target="services-view"><i class="fas fa-list-alt"></i> My Services</a></li>
+                <li><a href="#" class="nav-link" data-target="customers-view"><i class="fas fa-users"></i> Customers</a></li>
+                <li><a href="#" class="nav-link" data-target="analytics-view"><i class="fas fa-chart-line"></i> Analytics</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="#"><i class="fas fa-cog"></i> Settings</a>
+            <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <section id="dashboard-view" class="main-view active">
+            <header class="main-header">
+                <h1>Dashboard Overview</h1>
+                <div class="header-profile"><span>Aura Styles & Cuts</span><i class="fas fa-user-circle"></i></div>
+            </header>
+            <section class="stats-grid">
+                <div class="stat-card"><div class="stat-icon appointments"><i class="fas fa-calendar-day"></i></div><div class="stat-info"><p>Today's Appointments</p><span>8</span></div></div>
+                <div class="stat-card"><div class="stat-icon pending"><i class="fas fa-hourglass-half"></i></div><div class="stat-info"><p>Pending Requests</p><span>0</span></div></div>
+                <div class="stat-card"><div class="stat-icon revenue"><i class="fas fa-rupee-sign"></i></div><div class="stat-info"><p>Earnings Today</p><span>₹5,750</span></div></div>
+                <div class="stat-card"><div class="stat-icon reviews"><i class="fas fa-star"></i></div><div class="stat-info"><p>New Reviews</p><span>3</span></div></div>
+            </section>
+        </section>
+
+         <section id="appointments-view" class="main-view">
+                <header class="main-header">
+                    <h1>Appointments Schedule</h1>
+                    <div class="date-picker-wrapper">
+                        <label for="appointment-date">Select Day:</label>
+                        <input type="date" id="appointment-date">
+                    </div>
+                </header>
+                <div id="appointment-list-container" class="card">
+                    <!-- Appointments will be dynamically loaded here by our script -->
+                    <p class="no-appointments">Select a date to view your schedule.</p>
+                </div>
+            </section>
+        
+        <section id="services-view" class="main-view">
+    <header class="main-header">
+        <h1>My Services</h1>
+        <button id="add-service-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Add New Service</button>
+    </header>
+    <div class="card">
+        <table class="data-table">
+            <thead>
+                <tr><th>Service Name</th><th>Price</th><th>Duration</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="services-table-body">
+                <tr><td>Men's Precision Cut</td><td>₹450</td><td>30 min</td><td><button class="btn-icon edit"><i class="fas fa-pen"></i></button><button class="btn-icon delete"><i class="fas fa-trash"></i></button></td></tr>
+                <tr><td>Women's Haircut & Style</td><td>₹800</td><td>60 min</td><td><button class="btn-icon edit"><i class="fas fa-pen"></i></button><button class="btn-icon delete"><i class="fas fa-trash"></i></button></td></tr>
+                <tr><td>Global Hair Color</td><td>₹3500</td><td>120 min</td><td><button class="btn-icon edit"><i class="fas fa-pen"></i></button><button class="btn-icon delete"><i class="fas fa-trash"></i></button></td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+       <section id="customers-view" class="main-view">
+    <header class="main-header">
+        <h1>Customer List</h1>
+        <div class="search-bar"><input type="text" id="customer-search" placeholder="Search customers..."></div>
+    </header>
+    <div class="card">
+         <table class="data-table">
+            <thead>
+                <tr><th>Name</th><th>Last Visit</th><th>Total Bookings</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="customer-table-body">
+                <tr data-id="c1" data-loyalty="120">
+                    <td>Priya S.</td><td>Sep 15, 2025</td><td>8</td><td><button class="btn-sm view-history">View History</button></td>
+                </tr>
+                <tr data-id="c2" data-loyalty="75">
+                    <td>Amit K.</td><td>Sep 12, 2025</td><td>5</td><td><button class="btn-sm view-history">View History</button></td>
+                </tr>
+                <tr data-id="c3" data-loyalty="250">
+                    <td>Rohan M.</td><td>Aug 28, 2025</td><td>12</td><td><button class="btn-sm view-history">View History</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+        <section id="analytics-view" class="main-view">
+    <header class="main-header">
+        <h1>Analytics & Insights</h1>
+        <div class="date-picker-wrapper">
+            <label for="analytics-date">Select Week:</label>
+            <input type="date" id="analytics-date" value="2025-09-20">
+        </div>
+    </header>
+    <div class="analytics-grid">
+        <div class="card chart-card">
+            <h3>Revenue Trend (Last 7 Days)</h3>
+            <div class="chart-container line-chart">
+                <svg viewBox="0 0 100 50" preserveAspectRatio="none">
+                    <polyline id="revenue-line" fill="none" stroke="var(--primary-color)" stroke-width="2" points="0,40 15,30 30,35 45,20 60,25 75,15 90,20"/>
+                </svg>
+            </div>
+        </div>
+        <div class="card chart-card">
+            <h3>Top Performing Services</h3>
+            <div class="chart-container horizontal-bar-chart">
+                <div class="bar-item">
+                    <span class="label">Men's Cut</span>
+                    <div class="bar" style="--value: 90%;"><span>45</span></div>
+                </div>
+                <div class="bar-item">
+                    <span class="label">Hair Color</span>
+                    <div class="bar" style="--value: 75%;"><span>38</span></div>
+                </div>
+                <div class="bar-item">
+                    <span class="label">Beard Trim</span>
+                    <div class="bar" style="--value: 50%;"><span>25</span></div>
+                </div>
+                <div class="bar-item">
+                    <span class="label">Women's Cut</span>
+                    <div class="bar" style="--value: 40%;"><span>20</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="card chart-card">
+            <h3>New vs Returning Customers</h3>
+            <div class="chart-container vertical-bar-chart">
+                <div class="bar-group">
+                    <div class="bar new-customer" style="--value: 65%;" data-tooltip="65 New"></div>
+                    <div class="bar returning-customer" style="--value: 85%;" data-tooltip="85 Returning"></div>
+                </div>
+                 <div class="chart-legend">
+                    <span class="legend-item new-customer">New</span>
+                    <span class="legend-item returning-customer">Returning</span>
+                </div>
+            </div>
+        </div>
+        <div class="card chart-card">
+            <h3>Peak Booking Hours</h3>
+            <div class="chart-container peak-hours-chart">
+                <div class="bar" style="--value: 30%;" data-label="9am"></div>
+                <div class="bar" style="--value: 60%;" data-label="11am"></div>
+                <div class="bar" style="--value: 45%;" data-label="1pm"></div>
+                <div class="bar" style="--value: 95%;" data-label="3pm"></div>
+                <div class="bar" style="--value: 80%;" data-label="5pm"></div>
+                <div class="bar" style="--value: 55%;" data-label="7pm"></div>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+</div>
+<div id="service-modal" class="modal-overlay hidden">
+    <div class="modal-content">
+        <form id="service-form">
+            <h3 id="modal-title">Add New Service</h3>
+            <div class="form-group">
+                <label for="service-name">Service Name</label>
+                <input type="text" id="service-name" placeholder="e.g., Classic Shave" required>
+            </div>
+            <div class="form-group">
+                <label for="service-price">Price (₹)</label>
+                <input type="number" id="service-price" placeholder="e.g., 300" required>
+            </div>
+            <div class="form-group">
+                <label for="service-duration">Duration (minutes)</label>
+                <input type="number" id="service-duration" placeholder="e.g., 45" required>
+            </div>
+            <div class="modal-actions">
+                <button type="button" id="cancel-service-btn" class="btn btn-secondary">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save Service</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="customer-modal" class="modal-overlay hidden">
+        <div class="modal-content large">
+            <button class="modal-close-btn">&times;</button>
+            <div id="customer-details-content">
+                </div>
+        </div>
+    </div>
+    <!-- Modal for adding/editing services -->
+    <div id="service-modal" class="modal-overlay hidden">
+        <!-- (Your existing modal content) -->
+    </div>
+    <!-- Modal for customer details -->
+    <div id="customer-modal" class="modal-overlay hidden">
+        <!-- (Your existing modal content) -->
+    </div>
+<script src="barber-dashboard.js"></script>
+</body>
+</html>
