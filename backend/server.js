@@ -17,7 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 // --- Serve Static Frontend Files ---
-app.use(express.static(path.join(__dirname, '../frontend')));
+app.use(express.static(path.join(__dirname, 'frontend')));
 
 // --- API Routes ---
 app.use('/api/users', require('./routes/userRoutes'));
